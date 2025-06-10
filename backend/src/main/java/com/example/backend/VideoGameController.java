@@ -29,8 +29,4 @@ public class VideoGameController {
         return ResponseEntity.ok(videoGamesList);
     }
 
-    @GetMapping("/a")
-    public VideoGame test() {
-        return new VideoGame("TestName", "Action", 12, 29.99);
-    }
 }
