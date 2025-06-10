@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Video Games List</title>
+</head>
+<body>
+<h1>Video Games</h1>
+<ul id="gameList"></ul>
+
+<a href="/addgame.html">Add New Game</a>
+
+<script>
+    fetch('http://localhost:8080/videogame')
+        .then(response => response.json())
+        .then(games => {
+            const gameList = document.getElementById('gameList');
+            games.forEach(game => {
+                const li = document.createElement('li');
+                li.textContent = `${game.name} | Category: ${game.category} | Min Age: ${game.minAge} | Price: $${game.price}`;
+                gameList.appendChild(li);
+            });
+        })
+        .catch(error => console.error('Error fetching games:', error));
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Add Video Game</title>
+</head>
+<body>
+<h1>Add Video Game</h1>
+<form id="addGameForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" required><br>
+
+    <label for="category">Category:</label>
+    <input type="text" id="category" required><br>
+
+    <label for="minAge">Minimum Age:</label>
+    <input type="number" id="minAge" required><br>
+
+    <label for="price">Price:</label>
+    <input type="number" step="0.01" id="price" required><br>
+
+    <button type="submit">Add Game</button>
+</form>
+
+<script>
+    document.getElementById('addGameForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const game = {
+            name: document.getElementById('name').value,
+            category: document.getElementById('category').value,
+            minAge: parseInt(document.getElementById('minAge').value),
+            price: parseFloat(document.getElementById('price').value)
+        };
+
+        fetch('http://localhost:8080/videogame', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(game)
+        })
+            .then(response => {
+                if (response.ok) {
+                    alert('Game added!');
+                    window.location.href = '/index.html'; // Go back to game list
+                } else {
+                    alert('Error adding game');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+    });
+</script>
+</body>
+</html>
