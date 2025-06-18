@@ -1,4 +1,4 @@
-package com.example.backend;
+package com.example.backend.controller;
 
 import com.example.backend.entity.VideoGame;
 import com.example.backend.service.VideoGameService;
