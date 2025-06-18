@@ -17,7 +17,7 @@
             const gameList = document.getElementById('gameList');
             games.forEach(game => {
                 const li = document.createElement('li');
-                li.textContent = `${game.name} | Category: ${game.category} | Min Age: ${game.minAge} | Price: $${game.price}`;
+                li.textContent = `${game.name} | Category: ${game.category} | Min Age: ${game.minAge} | Price: $ ${game.price}`;
                 gameList.appendChild(li);
             });
         })
