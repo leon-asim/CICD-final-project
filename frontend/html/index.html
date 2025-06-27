@@ -11,7 +11,7 @@
 <a href="/addgame.html">Add New Game</a>
 
 <script>
-    fetch('http://localhost:8080/videogame')
+    fetch('/videogame')
         .then(response => response.json())
         .then(games => {
             const gameList = document.getElementById('gameList');

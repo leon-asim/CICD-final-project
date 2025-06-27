@@ -33,7 +33,7 @@
             price: parseFloat(document.getElementById('price').value)
         };
 
-        fetch('http://localhost:8080/videogame', {
+        fetch('/videogame', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
