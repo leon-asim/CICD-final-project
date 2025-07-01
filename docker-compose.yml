@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
 
   db:
@@ -24,18 +22,17 @@ services:
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: password
     ports:
-      - "8080:8080"
+      - "8082:8080"
 
   frontend:
-    image: nginx:stable-alpine
+    image: leon38asim/frontendcompose
     container_name: my_frontend
     depends_on:
       - backend
     ports:
-      - "80:80"
-    volumes:
-      - ./frontend:/usr/share/nginx/html
-    # Optionally add nginx.conf for API proxying (advanced)
+      - "8081:80"
+#    volumes:
+#      - ./frontend:/usr/share/nginx/html
 
 volumes:
   postgres-data:
